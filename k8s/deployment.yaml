@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-website
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-website
+  template:
+    metadata:
+      labels:
+        app: java-website
+    spec:
+      containers:
+      - name: java-website
+        image: yourdockerhub/java-website:latest
+        ports:
+        - containerPort: 8080
